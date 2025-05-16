@@ -27,12 +27,13 @@ test_data = args.test_data
 
 
 def validation(case_id, epoch):
-    alpha_list = [0.97, 0.97, 1.16, 1.15, 1.13, 1.10, 0.97, 0.97, 0.97, 0.97]
-    alpha = alpha_list[int(case_id)]
+    # alpha_list = [0.97, 0.97, 1.16, 1.15, 1.13, 1.10, 0.97, 0.97, 0.97, 0.97]
+    # alpha = alpha_list[int(case_id)]
     case_id = str(case_id)
-    beta = 0.625
-    alpha /= beta
-
+    # beta = 0.625
+    # alpha /= beta
+    alpha = 1.0
+    
     mov_name = test_data + case_id + "/new_vols/case" + case_id + "_T00.nii.gz"
     fix_name = test_data + case_id + "/new_vols/case" + case_id + "_T50.nii.gz"
     mov_p_name = test_data + case_id + "/new_landmarks/case" + case_id + "_T00.txt"
