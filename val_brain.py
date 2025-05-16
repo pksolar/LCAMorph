@@ -41,8 +41,12 @@ def main(epoch, model_performance):
     mean_dice_list = []
 
     with torch.no_grad():
-        for moving_vol_name, moving_seg_name in zip(val_vol_dataset, val_seg_dataset):
-            for fixed_vol_name, fixed_seg_name in zip(val_vol_dataset, val_seg_dataset):
+       for moving_vol_name, moving_seg_name in zip(val_vol_dataset[1::2], val_seg_dataset[1::2]):
+           for fixed_vol_name, fixed_seg_name in zip(val_vol_dataset[0::2], val_seg_dataset[0::2]):
+        ### too slow ###
+        # for moving_vol_name, moving_seg_name in zip(val_vol_dataset, val_seg_dataset):
+        #    for fixed_vol_name, fixed_seg_name in zip(val_vol_dataset, val_seg_dataset):
+        ### too slow ###
                 if moving_vol_name == fixed_vol_name:
                     continue
                 moving_vol, fixed_vol = load_vol(moving_vol_name), load_vol(fixed_vol_name)
